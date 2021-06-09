@@ -3,12 +3,12 @@ from tkinter import*
 from tkinter import ttk
 from tkinter.font import BOLD
 from typing import Literal, ValuesView
-import PIL
+import PIL #pip install pillow
 from PIL import ImageTk
 from PIL import Image
 from awesometkinter import frame
 from tkinter import messagebox
-import mysql.connector 
+import mysql.connector #pip install mysql.connector
 
 root = Tk()
 root.geometry('1080x780+0+0')
@@ -21,11 +21,11 @@ db = mysql.connector.connect(
     host='localhost',
     user = 'root',
     passwd = '',
-    database = 'fci'
+    database = 'fci'#use your database name
 )
 
 cur = db.cursor()
-
+#----------function-------------
 def insert(name, pas, bod, country, email):
     id = ''
 
@@ -34,7 +34,7 @@ def insert(name, pas, bod, country, email):
     cur.execute(formula, values)
     db.commit()
 
-#function
+
 def get_info():
     name = user_e.get()
     pas = pss_e.get()
@@ -61,13 +61,13 @@ def clear_entry():
 login_frame = Frame(root,)
 login_frame.pack(side=BOTTOM,expand=True, fill=None,)
 
-fimg = Image.open(r'D:\Git\login_system_gui\logo1.png') 
+fimg = Image.open(r'D:\Git\login_system_gui\logo1.png') #you have to change this after you clone or download this file bcz file path will change
 fimg = fimg.resize((650,650))
 f_img = ImageTk.PhotoImage(fimg)
 f_img_leb = Label(login_frame,image=f_img, bg='#5A505F')
 f_img_leb.pack(side =TOP ,expand=True, fill='both')
 
-#entry ==========
+#-----------entry-----------
 
 user_e = Entry(login_frame,bg='#E167ED', bd=2, relief=RIDGE, fg='white', font=('havetica',10,''))
 user_e.place(x = 300 , y = 190, width=180, height=28 )
@@ -75,8 +75,7 @@ user_e.place(x = 300 , y = 190, width=180, height=28 )
 pss_e =Entry(login_frame,bg='#E167ED', bd=2, relief=RIDGE, font=('havetica',10,''), fg='white')
 pss_e.place(x = 300 , y = 258,width=180, height=28)
 
-date = ['2000','2001', '2002', '2003']
-
+date = ['1998','1999','2000','2001', '2002', '2003']
 bod_e = ttk.Combobox(login_frame, values=date, )
 bod_e.place(x = 300 , y = 326,width=180, height=28)
 bod_e.current(0)
@@ -89,7 +88,7 @@ country_e.current(0)
 email_e = Entry(login_frame,bg='#E167ED', bd=2, relief=RIDGE, font=('havetica',10,''), fg='white')
 email_e.place(x = 300 , y = 460,width=180, height=28)
 
-#---label----
+#--------label------------
 user_l = Label(login_frame, text="User name",bg='#A5DAF5', fg='white', bd=2, padx=10, pady= 5, font=('',10,'bold'))
 user_l.place(x = 200 , y = 190,height=26, width=70  )
 
@@ -105,7 +104,7 @@ country_l.place(x =200, y = 394,height=26, width=70)
 email_l = Label(login_frame,text="Email",bg='#A5DAF5', fg='white', bd=2, padx=10, pady= 5,font=('',10,'bold'))
 email_l.place(x = 200 , y = 462,height=26, width=70)
 
-####_____btn_____
+#_____btn_____
 
 sbtn = Button(login_frame,command=lambda:get_info(), text='Submit',bg='#5A505F',activeforeground='#A5DAF5',activebackground='#E167ED', fg='#A5DAF5', bd=2, padx=10, pady= 5,font=('',10,'bold'), relief=RAISED)
 sbtn.place(x= 230, y = 580, height=27, width=70)
