@@ -61,7 +61,7 @@ def clear_entry():
 login_frame = Frame(root,)
 login_frame.pack(side=BOTTOM,expand=True, fill=None,)
 
-fimg = Image.open(r'C:\Users\SAIYED MAHMUD\OneDrive\Desktop\login project\logo1.png')
+fimg = Image.open(r'D:\Git\login_system_gui\logo1.png') 
 fimg = fimg.resize((650,650))
 f_img = ImageTk.PhotoImage(fimg)
 f_img_leb = Label(login_frame,image=f_img, bg='#5A505F')
@@ -112,30 +112,6 @@ sbtn.place(x= 230, y = 580, height=27, width=70)
 
 cbtn = Button(login_frame,command=lambda:clear_entry(), text='Clear',bg='#5A505F',activeforeground='#A5DAF5',activebackground='#E167ED', fg='#A5DAF5', bd=2, padx=10, pady= 5,font=('',10,'bold'), relief=RAISED)
 cbtn.place(x= 350, y = 580, height=27, width=70)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 root.mainloop()
